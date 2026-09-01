@@ -4,6 +4,7 @@ import Scene03Reality from "./sections/Scene03Reality/Scene03Reality";
 import Scene04Vision from "./sections/Scene04Vision/Scene04Vision";
 import Scene05Work from "./sections/Scene05Work/Scene05Work";
 import Scene06People from "./sections/Scene06People/Scene06People";
+import Scene07Commitment from "./sections/Scene07Commitment/Scene07Commitment";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Scene04Vision />
       <Scene05Work />
       <Scene06People />
+      <Scene07Commitment />
     </main>
   );
 }
