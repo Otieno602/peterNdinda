@@ -139,12 +139,13 @@ const Scene01Arrival = () => {
           trigger: sceneRef.current,
           start: "top top",
           end: "bottom bottom",
-          scrub: 0.6,
+          scrub: 0.25,
           pin: viewportRef.current,
           anticipatePin: 1,
         },
       });
 
+      // SOCIALS
       // SOCIALS
       scrollTl.fromTo(
         "[data-hero-social]",
@@ -158,7 +159,7 @@ const Scene01Arrival = () => {
           duration: 0.12,
           ease: "none",
         },
-        0.08,
+        0.02,
       );
 
       // SCENE MARKER
@@ -174,7 +175,7 @@ const Scene01Arrival = () => {
           duration: 0.12,
           ease: "none",
         },
-        0.08,
+        0.02,
       );
 
       // CTA
@@ -190,7 +191,7 @@ const Scene01Arrival = () => {
           duration: 0.15,
           ease: "none",
         },
-        0.18,
+        0.08,
       );
 
       // IDENTITY / SUBTITLE
@@ -206,7 +207,7 @@ const Scene01Arrival = () => {
           duration: 0.18,
           ease: "none",
         },
-        0.28,
+        0.14,
       );
 
       scrollTl.fromTo(
@@ -221,7 +222,7 @@ const Scene01Arrival = () => {
           duration: 0.16,
           ease: "none",
         },
-        0.25,
+        0.12,
       );
 
       // TITLE
@@ -237,7 +238,7 @@ const Scene01Arrival = () => {
           duration: 0.3,
           ease: "none",
         },
-        0.35,
+        0.2,
       );
 
       // NAVIGATION
@@ -253,7 +254,7 @@ const Scene01Arrival = () => {
           duration: 0.15,
           ease: "none",
         },
-        0.45,
+        0.32,
       );
 
       // DARK TRANSITION
