@@ -139,7 +139,7 @@ const Scene01Arrival = () => {
           trigger: sceneRef.current,
           start: "top top",
           end: "bottom bottom",
-          scrub: 1.2,
+          scrub: 0.6,
           pin: viewportRef.current,
           anticipatePin: 1,
         },
