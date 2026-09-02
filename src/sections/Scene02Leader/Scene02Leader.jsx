@@ -12,6 +12,81 @@ const Scene02Leader = () => {
     const ctx = gsap.context(() => {
       const reveals = gsap.utils.toArray("[data-s02-reveal]");
 
+      // =====================================================
+      // OPENING — IMAGE + TEXT MOVE AS ONE COMPOSITION
+      // =====================================================
+      const opening = sceneRef.current.querySelector("[data-s02-opening]");
+
+      if (opening) {
+        const image = opening.querySelector("[data-s02-opening-image]");
+        const content = opening.querySelector("[data-s02-opening-content]");
+        const eyebrow = opening.querySelector("[data-s02-opening-eyebrow]");
+        const title = opening.querySelector("[data-s02-opening-title]");
+        const copy = opening.querySelector("[data-s02-opening-copy]");
+
+        gsap.set(image, {
+          scale: 1.08,
+        });
+
+        gsap.set([eyebrow, title, copy], {
+          autoAlpha: 0,
+          y: 40,
+        });
+
+        const openingTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: opening,
+            start: "top 80%",
+            toggleActions: "play reverse play reverse",
+          },
+        });
+
+        // TEXT ARRIVES FIRST
+        openingTl.to(
+          eyebrow,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+          },
+          0,
+        );
+
+        openingTl.to(
+          title,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          },
+          "-=0.3",
+        );
+
+        openingTl.to(
+          copy,
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power2.out",
+          },
+          "-=0.35",
+        );
+
+        // IMAGE FINISHES AFTER TEXT HAS ARRIVED
+        openingTl.to(
+          image,
+          {
+            scale: 1,
+            duration: 1.2,
+            ease: "power3.out",
+          },
+          "-=0.15",
+        );
+      }
+
       reveals.forEach((element) => {
         gsap.fromTo(
           element,
@@ -86,22 +161,41 @@ const Scene02Leader = () => {
       {/* =====================================================
           OPENING — PETER WA SOKO
       ====================================================== */}
-      <section className="relative min-h-screen overflow-hidden">
+      <section
+        data-s02-opening
+        className="relative min-h-screen overflow-hidden"
+      >
         <div className="absolute inset-0 overflow-hidden bg-black">
           <img
+            data-s02-opening-image
             src={marketImage}
             alt="Peter Wa Soko standing among traders at a local market"
-            className="absolute left-1/2 top-1/2 h-full w-auto max-w-none -translate-x-1/2 -translate-y-1/2 sm:h-[105%]"/>
+            className="
+        absolute
+        left-1/2
+        top-1/2
+        h-full
+        w-auto
+        max-w-none
+        -translate-x-1/2
+        -translate-y-1/2
+        sm:h-[105%]
+      "
+          />
         </div>
 
         {/* Cinematic overlays */}
         <div className="absolute inset-0 bg-linear-to-r from-black via-black/45 to-transparent" />
         <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-black/20" />
 
-        <div className="relative z-10 flex min-h-screen items-end px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24">
+        {/* CONTENT — stays attached to the image composition */}
+        <div
+          data-s02-opening-content
+          className="relative z-10 flex min-h-screen items-end px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24"
+        >
           <div className="max-w-5xl">
             <p
-              data-s02-reveal
+              data-s02-opening-eyebrow
               className="mb-5 text-[11px] font-medium tracking-[0.38em] text-white/60 uppercase"
             >
               The making of a leader
@@ -109,7 +203,7 @@ const Scene02Leader = () => {
 
             <h2
               id="scene02-title"
-              data-s02-reveal
+              data-s02-opening-title
               className="max-w-4xl text-[clamp(4rem,11vw,10rem)] font-semibold leading-[0.8] tracking-[-0.065em]"
             >
               PETER
@@ -118,7 +212,7 @@ const Scene02Leader = () => {
             </h2>
 
             <div
-              data-s02-reveal
+              data-s02-opening-copy
               className="mt-8 max-w-xl border-l border-white/35 pl-5"
             >
               <p className="text-base leading-relaxed text-white/80 sm:text-lg">
@@ -129,7 +223,6 @@ const Scene02Leader = () => {
           </div>
         </div>
 
-        {/* Scene number */}
         <div className="absolute bottom-8 right-6 z-20 flex items-center gap-3 text-[10px] tracking-[0.35em] text-white/45 uppercase sm:right-10 lg:right-16">
           <span className="h-px w-8 bg-white/30" />
           <span>02</span>
@@ -167,42 +260,47 @@ const Scene02Leader = () => {
       </section>
 
       {/* =====================================================
-          THE WORK
-      ====================================================== */}
+    THE WORK
+===================================================== */}
       <section className="relative bg-[#080808] px-6 py-24 sm:px-10 lg:px-16 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-20">
-          <div className="relative mx-auto max-w-xl overflow-hidden bg-black">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative mx-auto min-h-[70vh] max-w-5xl overflow-hidden bg-black sm:min-h-[75vh]">
             <img
               data-s02-image
               src={workImage}
               alt="Peter Wa Soko handling produce at a local market"
-              className="h-auto w-full object-contain"
+              className="absolute inset-0 h-full w-full object-cover object-center"
             />
 
-            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
-          </div>
+            {/* Cinematic overlays */}
+            <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/35 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/65 via-transparent to-transparent" />
 
-          <div className="lg:pl-4">
-            <div data-s02-reveal>
-              <p className="text-[11px] tracking-[0.35em] text-white/40 uppercase">
-                The work
-              </p>
+            {/* TEXT OVER IMAGE */}
+            <div className="relative z-10 flex min-h-[70vh] items-end px-6 pb-10 sm:min-h-[75vh] sm:px-10 sm:pb-14 lg:px-14 lg:pb-16">
+              <div className="max-w-2xl">
+                <div data-s02-reveal>
+                  <p className="text-[11px] tracking-[0.35em] text-white/40 uppercase">
+                    The work
+                  </p>
 
-              <h3 className="mt-6 text-4xl font-medium leading-[1.05] tracking-[-0.035em] sm:text-5xl">
-                Not just a familiar face.
-                <br />
-                One of the people.
-              </h3>
+                  <h3 className="mt-6 text-4xl font-medium leading-[1.05] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
+                    Not just a familiar face.
+                    <br />
+                    One of the people.
+                  </h3>
+                </div>
+
+                <p
+                  data-s02-reveal
+                  className="mt-8 max-w-lg text-base leading-relaxed text-white/65 sm:text-lg"
+                >
+                  He knows what it means to work here, to hustle, to deal with
+                  everyday challenges and to build a life from what the market
+                  provides.
+                </p>
+              </div>
             </div>
-
-            <p
-              data-s02-reveal
-              className="mt-8 max-w-lg text-base leading-relaxed text-white/60 sm:text-lg"
-            >
-              He knows what it means to work here, to hustle, to deal with
-              everyday challenges and to build a life from what the market
-              provides.
-            </p>
           </div>
         </div>
       </section>
