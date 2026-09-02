@@ -65,37 +65,47 @@ const Scene03Reality = () => {
         });
 
         if (eyebrow) {
-          tl.to(eyebrow, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.7,
-            ease: "power3.out",
-          }, "-=0.55");
+          tl.to(
+            eyebrow,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.7,
+              ease: "power3.out",
+            },
+            "-=0.55",
+          );
         }
 
         if (title) {
-          tl.to(title, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.9,
-            ease: "power3.out",
-          }, "-=0.35");
+          tl.to(
+            title,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power3.out",
+            },
+            "-=0.35",
+          );
         }
 
         if (copy) {
-          tl.to(copy, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.75,
-            ease: "power2.out",
-          }, "-=0.35");
+          tl.to(
+            copy,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.75,
+              ease: "power2.out",
+            },
+            "-=0.35",
+          );
         }
       });
 
       // Opening quote
-      const quote = sceneRef.current.querySelector(
-        "[data-s03-opening-quote]"
-      );
+      const quote = sceneRef.current.querySelector("[data-s03-opening-quote]");
 
       if (quote) {
         gsap.fromTo(
@@ -114,14 +124,12 @@ const Scene03Reality = () => {
               start: "top 75%",
               toggleActions: "play reverse play reverse",
             },
-          }
+          },
         );
       }
 
       // Final statement
-      const finalStatement = sceneRef.current.querySelector(
-        "[data-s03-final]"
-      );
+      const finalStatement = sceneRef.current.querySelector("[data-s03-final]");
 
       if (finalStatement) {
         gsap.fromTo(
@@ -140,7 +148,7 @@ const Scene03Reality = () => {
               start: "top 75%",
               toggleActions: "play reverse play reverse",
             },
-          }
+          },
         );
       }
     }, sceneRef);
@@ -172,10 +180,7 @@ const Scene03Reality = () => {
       {/* =====================================================
           01 — THE MARKET
       ====================================================== */}
-      <section
-        data-s03-beat
-        className="relative min-h-svh overflow-hidden"
-      >
+      <section data-s03-beat className="relative min-h-svh overflow-hidden">
         <div className="absolute inset-0">
           <img
             data-s03-image
@@ -211,9 +216,9 @@ const Scene03Reality = () => {
               data-s03-copy
               className="mt-7 max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8"
             >
-              Before politics, before campaigns and before people called him
-              a leader, this was where he earned his living — among the people
-              and businesses that make this community what it is.
+              Before politics, before campaigns and before people called him a
+              leader, this was where he earned his living — among the people and
+              businesses that make this community what it is.
             </p>
           </div>
         </div>
@@ -254,9 +259,9 @@ const Scene03Reality = () => {
               data-s03-copy
               className="mt-6 max-w-2xl text-base leading-relaxed text-white/45 sm:text-lg"
             >
-              Soko means market. The name wasn't created for a campaign. It
-              came from years of being here — working, talking, listening and
-              living alongside the people.
+              Soko means market. The name wasn't created for a campaign. It came
+              from years of being here — working, talking, listening and living
+              alongside the people.
             </p>
           </div>
         </div>
@@ -265,10 +270,7 @@ const Scene03Reality = () => {
       {/* =====================================================
           03 — THE RHYTHM
       ====================================================== */}
-      <section
-        data-s03-beat
-        className="relative min-h-svh overflow-hidden"
-      >
+      <section data-s03-beat className="relative min-h-svh overflow-hidden">
         <div className="absolute inset-0">
           <img
             data-s03-image
@@ -304,8 +306,8 @@ const Scene03Reality = () => {
               className="mt-7 max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8"
             >
               The traders opening their stalls. The boda bodas moving through
-              the streets. The businesses trying to make it through another
-              day. The everyday rhythm of a community that never stops.
+              the streets. The businesses trying to make it through another day.
+              The everyday rhythm of a community that never stops.
             </p>
           </div>
         </div>
@@ -348,10 +350,7 @@ const Scene03Reality = () => {
       {/* =====================================================
           05 — THE NEXT GENERATION
       ====================================================== */}
-      <section
-        data-s03-beat
-        className="relative min-h-svh overflow-hidden"
-      >
+      <section data-s03-beat className="relative min-h-svh overflow-hidden">
         <div className="absolute inset-0">
           <img
             data-s03-image
@@ -364,8 +363,8 @@ const Scene03Reality = () => {
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/10" />
         </div>
 
-        <div className="relative z-10 flex min-h-svh items-center px-6 py-24 sm:px-10 lg:px-16">
-          <div className="max-w-3xl">
+        <div className="absolute inset-0 flex items-end">
+          <div className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24">
             <p
               data-s03-eyebrow
               className="text-[10px] uppercase tracking-[0.4em] text-white/55 sm:text-xs"
@@ -386,8 +385,8 @@ const Scene03Reality = () => {
               data-s03-copy
               className="mt-7 max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8"
             >
-              Every child deserves a place where possibility feels real.
-              Every family deserves the opportunity to build something better.
+              Every child deserves a place where possibility feels real. Every
+              family deserves the opportunity to build something better.
             </p>
           </div>
         </div>
@@ -410,17 +409,16 @@ const Scene03Reality = () => {
             className="mt-7 text-4xl font-medium leading-none tracking-[-0.045em] sm:text-6xl lg:text-7xl"
           >
             He doesn't want to lead
-            <br className="hidden sm:block" />
-            a place he doesn't understand.
+            <br className="hidden sm:block" />a place he doesn't understand.
           </h3>
 
           <p
             data-s03-copy
             className="mx-auto mt-8 max-w-2xl text-base leading-8 text-white/55 sm:text-lg"
           >
-            The problems here aren't numbers on a page to him. They are
-            streets he has walked, businesses he has understood and people he
-            has lived alongside.
+            The problems here aren't numbers on a page to him. They are streets
+            he has walked, businesses he has understood and people he has lived
+            alongside.
           </p>
         </div>
       </section>
@@ -437,24 +435,26 @@ const Scene03Reality = () => {
 
         <div className="absolute inset-0 bg-black/40" />
 
-        <div
-          data-s03-final
-          className="relative z-10 max-w-5xl"
-        >
-          <p className="text-[10px] uppercase tracking-[0.45em] text-white/45 sm:text-xs">
-            The place he knows
-          </p>
+        <div className="absolute inset-0 flex items-end">
+          <div
+            data-s03-final
+            className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24"
+          >
+            <p className="text-[10px] uppercase tracking-[0.45em] text-white/45 sm:text-xs">
+              The place he knows
+            </p>
 
-          <h3 className="mt-7 text-5xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-9xl">
-            He wants to lead
-            <br />
-            the place he knows.
-          </h3>
+            <h3 className="mt-7 max-w-5xl text-5xl font-medium leading-[0.9] tracking-[-0.055em] sm:text-7xl lg:text-9xl">
+              He wants to lead
+              <br />
+              the place he knows.
+            </h3>
 
-          <p className="mx-auto mt-8 max-w-xl text-base leading-8 text-white/60 sm:text-lg">
-            Because belonging gives him more than a connection to this place.
-            It gives him a reason to make it better.
-          </p>
+            <p className="mt-8 max-w-xl text-base leading-8 text-white/60 sm:text-lg">
+              Because belonging gives him more than a connection to this place.
+              It gives him a reason to make it better.
+            </p>
+          </div>
         </div>
       </section>
 
