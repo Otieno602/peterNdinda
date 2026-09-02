@@ -433,8 +433,6 @@ const Scene03Reality = () => {
           className="absolute inset-0 h-full w-full object-cover opacity-70"
         />
 
-        <div className="absolute inset-0 bg-black/40" />
-
         <div className="absolute inset-0 flex items-end">
           <div
             data-s03-final
