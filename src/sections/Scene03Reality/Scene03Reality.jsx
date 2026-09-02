@@ -436,7 +436,7 @@ const Scene03Reality = () => {
         <div className="absolute inset-0 flex items-end">
           <div
             data-s03-final
-            className="relative z-10 w-full px-6 pb-16 sm:px-10 sm:pb-20 lg:px-16 lg:pb-24"
+            className="relative z-10 w-full px-6 pb-16 text-left sm:px-10 sm:pb-20 lg:px-16 lg:pb-24"
           >
             <p className="text-[10px] uppercase tracking-[0.45em] text-white/45 sm:text-xs">
               The place he knows
@@ -455,7 +455,6 @@ const Scene03Reality = () => {
           </div>
         </div>
       </section>
-
       {/* =====================================================
           SCENE 04 HANDOFF
       ====================================================== */}
