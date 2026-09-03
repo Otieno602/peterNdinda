@@ -534,17 +534,17 @@ const Scene05Work = () => {
         className="relative bg-[#080808] px-6 py-28 sm:px-10 lg:px-16 lg:py-40"
       >
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-24">
-          <div>
+          <div className="max-w-3xl">
             <p
               data-s05-editorial-eyebrow
-              className="text-[10px] uppercase tracking-[0.4em] text-white/40 sm:text-xs"
+              className="text-[10px] uppercase tracking-[0.4em] text-white/55 sm:text-xs"
             >
               The everyday
             </p>
 
             <h3
               data-s05-editorial-title
-              className="max-w-3xl text-5xl font-medium leading-[0.92] tracking-tighter sm:text-7xl lg:text-8xl"
+              className="mt-5 max-w-3xl text-5xl font-medium leading-[0.92] tracking-tighter sm:text-7xl lg:text-8xl"
             >
               The work doesn't happen only when people are watching.
             </h3>
